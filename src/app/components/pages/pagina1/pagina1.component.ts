@@ -11,8 +11,11 @@ import { FormControl, Validators } from '@angular/forms';
     `.example-container .mat-form-field + .mat-form-field {
       margin-left: 8px;
     }
-    h1 {
-      color: blue;
+    .example-container {
+      margin-left: 8px;
+    }
+    h1{
+      margin-left: 28px;
     }`
   ]
 })

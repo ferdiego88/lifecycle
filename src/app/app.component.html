@@ -1,7 +1,13 @@
-<h1>Ciclo de Vida de Angular</h1>
+<h1>Ciclo de Vida de Angular y un poco de Material</h1>
 <hr>
-<button class="btn btn-danger" (click)="mostrar=!mostrar">
-  {{mostrar ? 'Ocultar': 'mostrar'}}
-</button>
+<div class="container">
+  <div>
+    <button mat-raised-button color="primary"(click)="mostrar=!mostrar">
+      {{mostrar ? 'Ocultar': 'mostrar'}}
+    </button>
+  </div>
+  <div>
+    <app-pagina1 *ngIf="mostrar"></app-pagina1>
+  </div>
+</div>
 
-<app-pagina1 *ngIf="mostrar"></app-pagina1>
