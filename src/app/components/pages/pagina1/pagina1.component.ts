@@ -1,21 +1,42 @@
 import { AfterContentChecked, AfterContentInit,
         AfterViewChecked, AfterViewInit, Component,
-        DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+        DoCheck, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-pagina1',
   templateUrl: './pagina1.component.html',
   styles: [
+    `.example-container .mat-form-field + .mat-form-field {
+      margin-left: 8px;
+    }
+    h1 {
+      color: blue;
+    }`
   ]
 })
 export class Pagina1Component
        implements OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
                   AfterViewInit, AfterViewChecked, OnDestroy {
 
-  constructor() {
-    console.log('constructor');
+email = new FormControl('', [Validators.required, Validators.email]);
 
-   }
+constructor() {
+  console.log('constructor');
+
+ }
+
+getErrorMessage() {
+  if (this.email.hasError('required')) {
+    return 'Debes escribir un correo';
+  }
+
+  return this.email.hasError('email') ? 'Email no válido' : '';
+}
+
+
+
 
   ngOnDestroy(): void {
     console.log('ngOnDestroy.');

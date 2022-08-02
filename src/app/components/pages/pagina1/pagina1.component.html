@@ -1,9 +1,10 @@
 <h1>Pagina 1</h1>
-<div class="row">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Cajita de prueba">
-  </div>
-  <div class="col">
-    <button type="button" class="btn btn-primary">Click</button>
-  </div>
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Escribe tu Email</mat-label>
+    <input matInput
+    placeholder="email@ejemplo.com"
+    [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
 </div>
